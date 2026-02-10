@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wendell Soares | Cybersecurity</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#050806] text-white selection:bg-[#00FF41] selection:text-black overflow-x-hidden">
+    <!--VALHALLA{R00T_4CC3SS}-->
+    <canvas id="matrix-canvas" class="fixed inset-0 z-0 opacity-40 pointer-events-none"></canvas>
+
+    <div class="min-h-screen flex justify-center items-start z-10 relative bg-transparent">
+        
+        <div class="relative flex min-h-screen w-full max-w-[480px] flex-col bg-[#0d1112]/90 backdrop-blur-md overflow-x-hidden shadow-2xl border-x border-white/5 rune-pattern">
+            
+            <header class="flex items-center bg-[#0d1112]/95 backdrop-blur-md p-4 sticky top-0 z-50 border-b border-white/5">
+                <div class="text-[#00FF41] flex size-10 shrink-0 items-center justify-center">
+                    <i data-lucide="terminal"></i>
+                </div>
+                <h2 class="text-white text-base font-bold leading-tight tracking-wider flex-1 text-center font-mono uppercase">
+                    <span class="animate-pulse" id="username-display">@WENDELLS04</span>
+                </h2>
+                <div class="flex items-center gap-2">
+                    <button id="panic-btn" class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-red-500/10 text-red-500 border border-red-500/30 hover:bg-red-500/20 transition-all active:scale-95" title="Panic Mode">
+                        <i data-lucide="shield-alert" class="size-[18px]"></i>
+                    </button>
+                    <button id="share-btn" class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-[#00FF41]/10 text-[#00FF41] border border-[#00FF41]/30 hover:bg-[#00FF41]/20 transition-all active:scale-95" title="Compartilhar">
+                        <i data-lucide="share-2" class="size-[18px]"></i>
+                    </button>
+                </div>
+            </header>
+
+            <main class="flex-1 flex flex-col px-6 pt-10 pb-16 gap-10 items-center">
+                
+                <section class="flex flex-col items-center gap-6">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 rounded-full border border-[#00FF41]/30 glitch-border"></div>
+                        
+                        <div class="relative z-10 size-32 rounded-full overflow-hidden border-2 border-[#00FF41]/40 bg-[#1a2421]">
+                            <div class="scanner-line"></div>
+                            <img src="img/profile.png" alt="Wendell Soares" id="profile-img" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        </div>
+                        
+                        <div class="absolute bottom-1 right-1 h-5 w-5 bg-[#00FF41] rounded-full border-4 border-[#0d1112] z-20 shadow-[0_0_12px_rgba(0,255,65,0.8)] animate-pulse"></div>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center">
+                        <h1 id="typewriter-name" class="text-white text-3xl font-bold tracking-tight mb-1 min-h-[40px]"></h1>
+                        <p class="text-[#00FF41] text-xs font-bold tracking-[0.3em] uppercase mb-3 drop-shadow-[0_0_8px_rgba(0,255,65,0.5)]">
+                            INFOSEC 
+                        </p>
+                        <div class="h-[2px] w-12 bg-gradient-to-r from-transparent via-[#00FF41]/50 to-transparent mb-3"></div>
+                        <p id="typewriter-tagline" class="text-[#889999] text-base font-normal leading-relaxed max-w-[280px] min-h-[50px]"></p>
+                        <p class="text-[11px] font-mono mt-3 italic text-[#00FF41]/40 flex items-center gap-2">
+                            <i data-lucide="shield" class="size-[10px]"></i> Valhalla.sys // Digital Realm
+                        </p>
+                    </div>
+                </section>
+
+                <section id="links-container" class="w-full flex flex-col gap-4">
+                </section>
+
+                <section class="w-full mt-2 font-mono text-[12px] border border-[#00FF41]/20 bg-black/40 p-4 rounded-lg tech-cut" id="terminal-container">
+                    <div class="flex items-center gap-2 mb-3 border-b border-[#00FF41]/10 pb-2">
+                        <div class="flex gap-1.5">
+                            <span class="size-2.5 rounded-full bg-red-500/50"></span>
+                            <span class="size-2.5 rounded-full bg-yellow-500/50"></span>
+                            <span class="size-2.5 rounded-full bg-green-500/50"></span>
+                        </div>
+                        <span class="text-[#00FF41]/40 text-[10px] uppercase tracking-widest ml-auto">valhalla_terminal_v4</span>
+                    </div>
+                    
+                    <div id="terminal-output" class="mb-3 text-[#889999] h-32 overflow-y-auto scrollbar-hide">
+                        <p class="text-[#00FF41]/70">Welcome to Valhalla. OS v4.0.2</p>
+                        <p class="mb-2">Type 'help' to initialize...</p>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <span class="text-[#00FF41] font-bold">root@cyberviking:~$</span>
+                        <input type="text" id="terminal-input" 
+                               class="bg-transparent border-none outline-none text-white flex-1 caret-[#00FF41]" 
+                               autofocus autocomplete="off" spellcheck="false">
+                    </div>
+                </section>
+
+                <footer class="mt-auto pt-10 flex flex-col items-center gap-4 opacity-30 group cursor-default">
+                    <div class="flex gap-6">
+                        <i data-lucide="cpu" class="size-4 group-hover:text-[#00FF41] group-hover:rotate-90 transition-all duration-500"></i>
+                        <i data-lucide="shield" class="size-4 group-hover:text-[#00FF41] transition-colors"></i>
+                        <i data-lucide="layout-grid" class="size-4 group-hover:text-[#00FF41] group-hover:-rotate-90 transition-all duration-500"></i>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-[10px] font-mono tracking-[0.4em] uppercase group-hover:text-[#00FF41] transition-colors">
+                            ROOT ACCESS // V4.0.2_STABLE
+                        </p>
+                    </div>
+                </footer>
+            </main>
+
+            <div class="h-6 bg-[#0d1112] flex justify-center items-center pb-2">
+                <div class="w-24 h-1 bg-white/10 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
